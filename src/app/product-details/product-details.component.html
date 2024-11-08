@@ -19,7 +19,8 @@
                     <td>{{ product.category }}</td>
                     <td>{{ product.value }}</td>
                     <td><p-button icon="pi pi-pencil" size="small" (click)="showAddEditDialog(true, product)" /></td>
-                    <td><p-button icon="pi pi-trash" size="small" severity="danger" (click)="removeProduct(product)" /></td>
+                    <td><p-button icon="pi pi-trash" size="small" severity="danger" (click)="removeProduct(product)" />
+                    </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="emptymessage">
@@ -37,7 +38,8 @@
     </div>
 </div>
 
-<p-dialog [header]="selectedProduct ? 'Edit Product' : 'Add Product'" [modal]="true" [(visible)]="showAddEditModal" [style]="{ width: '25rem' }">
+<p-dialog [header]="selectedProduct ? 'Edit Product' : 'Add Product'" [modal]="true" [(visible)]="showAddEditModal"
+    [style]="{ width: '25rem' }">
     <div class="pt-3">
         <form [formGroup]="productForm">
             <div class="flex gap-3 mb-3">
@@ -52,7 +54,7 @@
                 <label for="category" class="font-semibold w-6rem">Category <span class="text-red-500">*</span></label>
                 <div>
                     <p-dropdown id="category" formControlName="category" [options]="categories"
-                        placeholder="Select a category" 
+                        placeholder="Select a category"
                         [ngClass]="{'ng-invalid ng-dirty': isSubmitted && productForm.controls['category'].invalid}" />
                     <div *ngIf="isSubmitted && productForm.controls['name'].invalid">Category is required</div>
                 </div>
@@ -60,8 +62,8 @@
             <div class="flex gap-3 mb-3">
                 <label for="price" class="font-semibold w-6rem">Price <span class="text-red-500">*</span></label>
                 <div>
-                    <p-inputNumber id="price" inputId="integeronly" formControlName="value" 
-                    [ngClass]="{'ng-invalid ng-dirty': isSubmitted && productForm.controls['value'].invalid}" />
+                    <p-inputNumber id="price" inputId="integeronly" formControlName="value"
+                        [ngClass]="{'ng-invalid ng-dirty': isSubmitted && productForm.controls['value'].invalid}" />
                     <div *ngIf="isSubmitted && productForm.controls['name'].invalid">Price is required</div>
                 </div>
             </div>
